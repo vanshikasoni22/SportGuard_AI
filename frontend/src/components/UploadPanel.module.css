@@ -1,0 +1,141 @@
+.wrapper { width: 100%; }
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 260px;
+  border: 2px dashed rgba(255,255,255,0.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dropzone:hover {
+  border-color: rgba(0,229,255,0.4);
+  background: rgba(0,229,255,0.04);
+}
+
+.dragging {
+  border-color: #00e5ff;
+  background: rgba(0,229,255,0.08);
+  box-shadow: 0 0 0 4px rgba(0,229,255,0.1);
+}
+
+.loading { cursor: wait; }
+
+.hiddenInput { display: none; }
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px;
+  text-align: center;
+}
+
+.uploadIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.uploadTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b9ab0;
+}
+
+.browse {
+  color: #00e5ff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(0,229,255,0.3);
+}
+
+.uploadSub {
+  font-size: 12px;
+  color: #4b5a6e;
+}
+
+/* Loading state */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 32px;
+}
+
+.scanRing {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid rgba(0,229,255,0.2);
+  border-top-color: #00e5ff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loadingText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #00e5ff;
+}
+
+.progressPct {
+  font-size: 12px;
+  color: #4b5a6e;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Preview state */
+.previewState {
+  width: 100%;
+  height: 260px;
+  position: relative;
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.previewOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,11,18,0.6);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 14px;
+  color: #f0f4f8;
+}
+
+.previewState:hover .previewOverlay { opacity: 1; }
+
+/* Error */
+.error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #ef4444;
+  text-align: center;
+}
